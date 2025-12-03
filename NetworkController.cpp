@@ -138,13 +138,12 @@ void NetworkController::handleMessage(char* topic, byte* payload, unsigned int l
         // Extract data
         if (doc.containsKey("status") && doc.containsKey("location") && doc.containsKey("info")) {
              // Check if it's me (ignore my own messages)
-             String mac = doc["net"]["mac"];
-             if (mac == getMacAddress()) return;
+             String id = doc["info"]["ident"]; // or mac
+             if (id == hostname) return;
 
              float temp = doc["status"]["temperature"];
              double lat = doc["location"]["gps"]["lat"];
              double lon = doc["location"]["gps"]["lon"];
-             String id = doc["info"]["ident"]; // or mac
 
              // Update or add neighbor
              bool found = false;

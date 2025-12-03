@@ -3,6 +3,7 @@
 #include "NetworkController.h"
 
 #define HOTSPOT_RADIUS 10.0
+#define IDENT  "Mamadou-Ibrhima"
 ESPController esp;
 NetworkController network;
 esp_model model; // Allocated on stack/global
@@ -17,12 +18,13 @@ void setup() {
   esp.begin();
   
   // Initialize Network (WiFi + MQTT)
-  network.begin("IBOG"); // Hostname from mqtt_full
+  network.begin(IDENT); // Hostname from mqtt_full
   
   // Update model with network info
   model.WiFiSSID = network.getSSID();
   model.IP = network.getIP();
   model.MAC = network.getMacAddress();
+  model.ident = IDENT;
 }
 
 void loop() {

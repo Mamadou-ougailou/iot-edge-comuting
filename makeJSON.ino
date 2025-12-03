@@ -49,7 +49,7 @@ StaticJsonDocument<1000> makeJSON_fromStatus(esp_model *em){
 
   // Info section (hypothetical, as not in esp_model)
   JsonObject info = doc.createNestedObject("info");
-  info["ident"] = "ESP32 OG"; 
+  info["ident"] = em->ident; 
   info["user"] = "OG";         
   info["loc"] = "Nice";   
 

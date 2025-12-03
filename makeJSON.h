@@ -17,14 +17,15 @@ struct esp_model {
 
     float highTempThreshold = 26.0;
     float lowTempThreshold = 25.8;
-    static constexpr double latitude = 43.666672;
-    static constexpr double longitude = 7.15;
+    static constexpr double latitude = 43.65413;
+    static constexpr double longitude = 7.11102;
     static const char* room;
     static const char* address;
     static const char* target_ip;
     static constexpr int target_port = 1880;
     static constexpr int target_sp = 2;
 
+    String ident;
     String WiFiSSID;
     String MAC;
     String IP;
